@@ -1,0 +1,19 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="58" fill="#007ACC" stroke="#ffffff" stroke-width="4"/>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-commit-horizontal-icon lucide-git-commit-horizontal"><circle cx="12" cy="12" r="3"/><line x1="3" x2="9" y1="12" y2="12"/><line x1="15" x2="21" y1="12" y2="12"/></svg>
+  
+  <!-- Sparkle/AI indicator -->
+  <g transform="translate(64,25)">
+    <!-- Main star -->
+    <path d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#FFD700"/>
+    <!-- Small sparkles -->
+    <circle cx="12" cy="-5" r="1.5" fill="#FFD700"/>
+    <circle cx="-12" cy="5" r="1.5" fill="#FFD700"/>
+    <circle cx="8" cy="8" r="1" fill="#FFD700"/>
+  </g>
+  
+  <!-- Text hint -->
+  <text x="64" y="105" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">AI Commit</text>
+</svg>

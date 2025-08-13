@@ -1,27 +1,45 @@
 {
   "name": "claude-code-ai-commit-message-button",
-  "displayName": "Claude Code AI commit message button",
+  "displayName": "Claude Code AI Commit Message Button",
   "description": "Generate AI-powered commit messages using Claude with a sparkles button in VS Code's Git panel",
   "version": "0.0.1",
-  "publisher": "Tal Tukh",
+  "publisher": "taltukh",
+  "author": {
+    "name": "Tal Tukh"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/taltukh/claude-code-ai-commit-message-button#readme",
+  "bugs": {
+    "url": "https://github.com/taltukh/claude-code-ai-commit-message-button/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/taltukh/claude-code-ai-commit-message-button"
   },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "claude",
+    "anthropic",
+    "commit-message",
+    "automation"
+  ],
   "engines": {
     "vscode": "^1.103.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Machine Learning"
   ],
+  "galleryBanner": {
+    "color": "#1e1e1e", 
+    "theme": "dark"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "claude-code-ai-commit-message-button.helloWorld",
-        "title": "Hello World"
-      },
       {
         "command": "claude-code-ai-commit-message-button.createCommitMessage",
         "title": "Create Commit Message",
