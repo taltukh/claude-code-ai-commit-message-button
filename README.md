@@ -57,7 +57,7 @@ Initial release featuring:
 
 ## Contributing
 
-Found a bug or have a feature request? Please open an issue on our [GitHub repository](https://github.com/your-username/claude-code-ai-commit-message-button).
+Found a bug or have a feature request? Please open an issue on our [GitHub repository](https://github.com/taltukh/claude-code-ai-commit-message-button).
 
 ## License
 
