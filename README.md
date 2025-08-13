@@ -15,6 +15,7 @@ A VS Code extension that adds an AI-powered sparkle button ✨ to your Git panel
 ## Requirements
 
 - VS Code 1.103.0 or higher
+- Claude Code CLI ([`@anthropic-ai/claude-code`](https://docs.anthropic.com/en/docs/claude-code/quickstart)) installed and configured
 - Git repository initialized in your workspace
 - Internet connection for AI generation
 
