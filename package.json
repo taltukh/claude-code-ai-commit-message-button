@@ -1,0 +1,97 @@
+{
+  "name": "claude-code-ai-commit-message-button",
+  "displayName": "Claude Code AI commit message button",
+  "description": "Generate AI-powered commit messages using Claude with a sparkles button in VS Code's Git panel",
+  "version": "0.0.1",
+  "publisher": "Tal Tukh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taltukh/claude-code-ai-commit-message-button"
+  },
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "claude-code-ai-commit-message-button.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "claude-code-ai-commit-message-button.createCommitMessage",
+        "title": "Create Commit Message",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "claude-code-ai-commit-message-button.createCommitMessage",
+          "when": "scmProvider == git",
+          "group": "navigation"
+        }
+      ],
+      "scm/resourceGroup/inline": [
+        {
+          "command": "claude-code-ai-commit-message-button.createCommitMessage",
+          "group": "inline"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Claude Code AI Commit Message Button",
+      "properties": {
+        "claude-code-ai-commit-message-button.authToken": {
+          "type": "string",
+          "default": "",
+          "description": "Your Anthropic API Auth Token (optional - can also use ANTHROPIC_AUTH_TOKEN environment variable)"
+        },
+        "claude-code-ai-commit-message-button.baseUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Base URL for Anthropic API (optional - can also use ANTHROPIC_BASE_URL environment variable)"
+        },
+        "claude-code-ai-commit-message-button.model": {
+          "type": "string",
+          "default": "claude-4-sonnet",
+          "description": "Claude model to use for generating commit messages"
+        },
+        "claude-code-ai-commit-message-button.maxTokens": {
+          "type": "number",
+          "default": 200,
+          "description": "Maximum tokens for AI response"
+        }
+      }
+    }
+  },
+  "extensionDependencies": [
+    "anthropic.claude-code"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.102.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.59.0"
+  }
+}
