@@ -33,9 +33,10 @@
     "Machine Learning"
   ],
   "galleryBanner": {
-    "color": "#1e1e1e", 
+    "color": "#1e1e1e",
     "theme": "dark"
   },
+  "icon": "icon.png",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -87,9 +88,6 @@
       }
     }
   },
-  "extensionDependencies": [
-    "anthropic.claude-code"
-  ],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
