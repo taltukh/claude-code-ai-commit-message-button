@@ -2,6 +2,8 @@
 
 A VS Code extension that adds an AI-powered sparkle button ✨ to your Git panel for generating intelligent commit messages using Claude AI.
 
+![Sparkle button in Git panel](screenshots/sparkle-button-demo.png)
+
 ## Features
 
 - **One-click commit message generation**: Add a sparkle button directly in VS Code's Git panel
