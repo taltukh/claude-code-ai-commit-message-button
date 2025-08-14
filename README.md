@@ -38,10 +38,10 @@ A VS Code extension that adds an AI-powered sparkle button ✨ to your Git panel
 
 This extension contributes the following settings:
 
-* `claude-code-ai-commit-message-button.authToken`: Your Anthropic API key (optional - can also use environment variable)
+* `claude-code-ai-commit-message-button.authToken`: Your Anthropic API key (optional - can also use ANTHROPIC_AUTH_TOKEN environment variable)
 * `claude-code-ai-commit-message-button.baseUrl`: Base URL for Anthropic API (optional - can also use ANTHROPIC_BASE_URL environment variable)
-* `claude-code-ai-commit-message-button.model`: Claude model to use (default: claude-3-sonnet-20240229)
-* `claude-code-ai-commit-message-button.maxTokens`: Maximum tokens for response (default: 150)
+* `claude-code-ai-commit-message-button.model`: Claude model to use (default: claude-4-sonnet)
+* `claude-code-ai-commit-message-button.maxTokens`: Maximum tokens for response (default: 200)
 
 ## Privacy & Security
 
