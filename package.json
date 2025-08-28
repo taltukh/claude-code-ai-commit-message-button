@@ -84,6 +84,25 @@
           "type": "number",
           "default": 200,
           "description": "Maximum tokens for AI response"
+        },
+        "claude-code-ai-commit-message-button.customRules": {
+          "type": "array",
+          "default": [],
+          "description": "Custom rules for commit message generation (e.g., 'Always include ticket number', 'Use present tense')",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claude-code-ai-commit-message-button.commitFormat": {
+          "type": "string",
+          "default": "conventional",
+          "enum": ["conventional", "angular", "custom"],
+          "description": "Commit message format style"
+        },
+        "claude-code-ai-commit-message-button.customTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "Custom commit message template (used when commitFormat is 'custom')"
         }
       }
     }

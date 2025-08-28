@@ -32,6 +32,9 @@ class CommitMessageGenerator {
             const config = vscode.workspace.getConfiguration('claude-code-ai-commit-message-button');
             const model = config.get<string>('model') || 'claude-4-sonnet';
             const maxTokens = config.get<number>('maxTokens') || 200;
+            const customRules = config.get<string[]>('customRules') || [];
+            const commitFormat = config.get<string>('commitFormat') || 'conventional';
+            const customTemplate = config.get<string>('customTemplate') || '';
 
             const cwd = repositoryPath || vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
             
@@ -52,6 +55,10 @@ class CommitMessageGenerator {
 
             const fileType = isStaged ? 'staged files' : 'changed files';
             
+            // Build the prompt based on configuration
+            let formatRules = this.getFormatRules(commitFormat, customTemplate);
+            let customRulesText = customRules.length > 0 ? `\n\nAdditional custom rules:\n${customRules.map(rule => `- ${rule}`).join('\n')}` : '';
+            
             // Call Claude
             const response = await this.anthropic.messages.create({
                 model: model,
@@ -63,11 +70,7 @@ class CommitMessageGenerator {
 Git diff:
 ${diff}
 
-Rules:
-- Use conventional commit format
-- Keep under 72 characters for the first line
-- Be specific and clear
-- Common types: feat, fix, docs, style, refactor, test, chore
+${formatRules}${customRulesText}
 - Do not wrap the response in code blocks or backticks
 - Return plain text only`
                 }]
@@ -77,6 +80,36 @@ Rules:
             return textContent ? (textContent as any).text : 'Unable to generate commit message';
         } catch (error: any) {
             throw new Error(`Failed to generate commit message: ${error.message}`);
+        }
+    }
+
+    private getFormatRules(commitFormat: string, customTemplate: string): string {
+        switch (commitFormat) {
+            case 'conventional':
+                return `Rules:
+- Use conventional commit format
+- Keep under 72 characters for the first line
+- Be specific and clear
+- Common types: feat, fix, docs, style, refactor, test, chore`;
+            case 'angular':
+                return `Rules:
+- Use Angular commit format: <type>(<scope>): <description>
+- Types: build, ci, docs, feat, fix, perf, refactor, style, test
+- Keep under 100 characters for the first line
+- Use imperative mood`;
+            case 'custom':
+                return customTemplate ? `Rules:
+- Follow this custom template: ${customTemplate}
+- Be specific and clear` : `Rules:
+- Use conventional commit format
+- Keep under 72 characters for the first line
+- Be specific and clear`;
+            default:
+                return `Rules:
+- Use conventional commit format
+- Keep under 72 characters for the first line
+- Be specific and clear
+- Common types: feat, fix, docs, style, refactor, test, chore`;
         }
     }
 }
