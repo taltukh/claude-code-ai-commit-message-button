@@ -139,7 +139,7 @@ export function activate(context: vscode.ExtensionContext) {
             // If uri is provided, find the repo that contains this path
             if (uri) {
                 targetRepo = git.repositories.find((repo: any) => {
-                    const uriPath = (uri as any).E?.fsPath || uri.path;
+                    const uriPath = (uri as any).E?.fsPath || (uri as any).G?.fsPath || uri.path;
                     console.log('Comparing:', uriPath, 'with repo:', repo.rootUri.fsPath);
                     return uriPath && uriPath.startsWith(repo.rootUri.fsPath);
                 });
