@@ -2,7 +2,7 @@
   "name": "claude-code-ai-commit-message-button",
   "displayName": "Claude Code AI Commit Message Button",
   "description": "Generate AI-powered commit messages using Claude with a sparkles button in VS Code's Git panel",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "taltukh",
   "author": {
     "name": "Tal Tukh"
